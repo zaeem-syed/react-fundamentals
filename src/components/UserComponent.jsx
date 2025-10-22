@@ -20,4 +20,6 @@ export function Settings(){
     )
 }
 
+export const Userkey='%54454%%99';
+
 export default Login

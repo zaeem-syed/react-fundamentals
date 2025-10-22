@@ -1,4 +1,4 @@
-import Login, { Profile, Settings } from "./components/UserComponent"
+import Login, { Profile, Settings, Userkey } from "./components/UserComponent"
 
 function App(){
   return (
@@ -7,6 +7,7 @@ function App(){
        <Login></Login>
        <Profile/>
        <Settings></Settings>
+       <h4>the user key is {Userkey}</h4>
     </div>
   )
 }
