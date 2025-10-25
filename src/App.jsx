@@ -44,11 +44,25 @@ import Myname from './components/functionComponent';
 // }
 
 import image from './assets/images/y-a-SH2EDaghr74-unsplash.jpg';
+import { useState } from 'react';
 
 
 function App(){
   function callfun(){
     alert("function is called");
+  }
+    const [fruit,setFruit]=useState("apple");
+    const handleFruit=()=>{
+      setFruit("orange");
+    }
+  const [count,setCount]=useState(0);
+  // const handleCount=()=>{
+  //     setCount(count+1);
+
+  // }
+  function handleCount()
+  {
+    setCount(count+1);
   }
   let name ="my react app";
   function operation(a,b,op){
@@ -63,6 +77,8 @@ function App(){
     }else{
       return a/b;
     }
+  
+
 
   }
 
@@ -77,6 +93,11 @@ function App(){
         <li>improve specturm light </li>
         <li>{name? name:'My vue app'}</li>
         <li>{operation(200,2,'')}</li>
+         <li>the name of fruit {fruit}</li>
+         <li>this count is {count}</li>
+         <button onClick={handleFruit}>Change Fruit</button>
+          <button onClick={handleCount}>Start counting</button>
+
       </ul>
       <button onClick={callfun}>click me bastard</button>
       <div>
