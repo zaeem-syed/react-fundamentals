@@ -1,6 +1,10 @@
 // import Login, { Profile, Settings, Userkey } from "./components/UserComponent"
 
-import Greetings from "./components/ExampleComponent";
+
+
+// import { useState } from "react";
+// import Greetings from "./components/ExampleComponent";
+
 
 // import Myname from './components/functionComponent';
 
@@ -154,22 +158,89 @@ import Greetings from "./components/ExampleComponent";
 
 // export default App;
 
-import { useState } from "react";
-import Child from "./components/ChildComponent";
+// import { useState } from "react";
+// import Child from "./components/ChildComponent";
 
+
+// function App(){
+//   const [message,setMessage]=useState("");
+//   const handleDatafromChild=(childData)=>{
+//     setMessage(childData);
+//   }
+//   return(
+//     <div>
+//       <h1>parent component</h1>
+//       <p>Message from child :{message}</p>
+//       <Child sendData={handleDatafromChild}/>
+//     </div>
+//   )
+// }
+
+// export default App;
+
+// function App(){
+//   const [formData,setFormData]=useState({
+//     name:"",
+//     email:""
+//   });
+//    const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value,
+//     }));
+//   };
+//   return (
+//     <div> 
+//       <h1>this is user form</h1>
+//       <form action="">
+//       <label htmlFor="name">name</label>
+//       <input type="text" name="name"  id=""  value={formData.name} onChange={handleChange}/>
+//         <label htmlFor="name">email</label>
+//       <input type="text" name="email"  id="" value={formData.email} onChange={handleChange}/>
+//        <p>
+//         Name: {formData.name} | Email: {formData.email}
+//       </p>
+
+//       <button>Submit</button>
+//       </form>
+
+//     </div>
+//   )
+// }
+
+// export default App;
+
+
+
+function Header(){
+  return (
+    <header>
+      <h1>Welcome to the Zaeem's kitchen </h1>
+    </header>
+  );
+}
+const items = [
+  "Mac and Cheese",
+  "Tofu with Vegetables",
+  "Salmon with Potatoes"
+];
+
+function Main({dishes})
+{
+  return (
+    <ul>
+      {dishes.map(dish=> <li key={dish}>{dish}</li>)}
+    </ul>
+  );
+}
 
 function App(){
-  const [message,setMessage]=useState("");
-  const handleDatafromChild=(childData)=>{
-    setMessage(childData);
-  }
   return(
-    <div>
-      <h1>parent component</h1>
-      <p>Message from child :{message}</p>
-      <Child sendData={handleDatafromChild}/>
+    <div> <Header/>
+    <Main dishes={items}/>
     </div>
-  )
+  );
 }
 
 export default App;
