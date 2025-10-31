@@ -211,15 +211,22 @@
 
 // export default App;
 
+import { useState,useReducer, useEffect } from "react";
+import chef from "./assets/images/chef.jpg";
 
-
-function Header(){
+function Header({ onStatus, openStatus }) {
   return (
     <header>
-      <h1>Welcome to the Zaeem's kitchen </h1>
+      <h3>
+        Welcome to Zaeem's kitchen — it is {onStatus ? "open" : "closed"}
+      </h3>
+      <button onClick={openStatus}>
+        {onStatus ? "Close Restaurant" : "Open Restaurant"}
+      </button>
     </header>
   );
 }
+
 const items = [
   "Mac and Cheese",
   "Tofu with Vegetables",
@@ -235,11 +242,26 @@ function Main({dishes})
   );
 }
 
-function App(){
-  return(
-    <div> <Header/>
-    <Main dishes={items}/>
-    </div>
+function App() {
+  const [status, toggle] = useReducer(status => !status, true);
+  useEffect(()=>{
+    console.log(`the resturant status is ${status ? "open": "Close"}`);
+  },[status]);
+
+  return (
+    <main>
+      <img src={chef} alt="" height={200} />
+      <div>
+        <h1>The Restaurant is {status ? "open" : "closed"}</h1>
+        <h2>Welcome to this beautiful Restaurant</h2>
+        <button onClick={toggle}>
+          {status ? "Close Restaurant" : "Open Restaurant"}
+        </button>
+      </div>
+
+      <Header onStatus={status} openStatus={toggle} />
+      <Main dishes={items} />
+    </main>
   );
 }
 
